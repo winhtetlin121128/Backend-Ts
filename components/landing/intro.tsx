@@ -1,12 +1,12 @@
 
-import type { Ref } from "react";
+import type { RefObject } from "react";
 import Cover from '../../public/img/Intro.png';
 
 // const { photo1, photo2, photo3, photo4 } = viewers;
 // const view = [photo1, photo2, photo3, photo4];
 
 interface HomePageProps {
-    HomeRef: Ref<HTMLDivElement>;
+    HomeRef: RefObject<HTMLDivElement | null>;
 }
 
 const HomePage = ({HomeRef} : HomePageProps) => {

@@ -12,7 +12,7 @@ const ReviewDat = [
     }
 ]
 
-export default function Review({ReviewRef}) {
+export default function Review({ReviewRef}: ReviewProps) {
     return (
         <div ref={ReviewRef} className="flex justify-center items-center pt-20 pb-20">
             <div className="w-320 h-[100vh]">
@@ -27,4 +27,9 @@ export default function Review({ReviewRef}) {
             </div>
         </div>
     )
+}
+import type { RefObject } from 'react';
+
+interface ReviewProps {
+    ReviewRef: RefObject<HTMLDivElement | null>;
 }

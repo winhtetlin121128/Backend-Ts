@@ -1,13 +1,13 @@
 "use client"
 
 import { useEffect, useState } from 'react';
-import type { Ref } from "react";
+import type { RefObject } from "react";
 
 interface HomePageProps {
-    HomeRef: Ref<HTMLDivElement>;
-    ProcessRef: Ref<HTMLDivElement>;
-    EventRef: Ref<HTMLDivElement>;
-    ScrollToSection: Ref<HTMLDivElement>;
+    HomeRef: RefObject<HTMLDivElement | null>;
+    ProcessRef: RefObject<HTMLDivElement | null>;
+    EventRef: RefObject<HTMLDivElement | null>;
+    ScrollToSection: (ref: RefObject<HTMLDivElement | null>) => void;
 }
 
 const QuickLinks = ["Home", "Process", "Events", "About", "Reviews"];
@@ -22,7 +22,7 @@ const FooterContainer = ({HomeRef, ProcessRef, EventRef, ScrollToSection} : Home
         setCurrentYear(new Date().getFullYear());
     }, []);
 
-    const handleQuickLink = (element) => {
+    const handleQuickLink = (element: string) => {
         element === "Home" ? ScrollToSection(HomeRef) : ""
         element === "Process" ? ScrollToSection(ProcessRef) : ""
         element === "Events" ? ScrollToSection(EventRef) : ""

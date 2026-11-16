@@ -9,6 +9,7 @@ import Aboutcontainer from '../components/landing/about';
 import Processcontainer from '../components/landing/process';
 import Reviewcontainer from '../components/landing/review';
 import { useRef } from 'react';
+import type { RefObject } from 'react';
 
 // add async
 export default function Home() {
@@ -20,12 +21,12 @@ export default function Home() {
   // });
   // const users = await listUsers(10).catch(() => undefined);
 
-  const HomeRef = useRef(null)
-  const ProcessRef = useRef(null);
-  const EventRef = useRef(null);
-  const ReviewRef = useRef(null);
+  const HomeRef = useRef<HTMLDivElement>(null)
+  const ProcessRef = useRef<HTMLDivElement>(null);
+  const EventRef = useRef<HTMLDivElement>(null);
+  const ReviewRef = useRef<HTMLDivElement>(null);
 
-  const ScrollToSection = (ref) => {
+  const ScrollToSection = (ref: RefObject<HTMLDivElement | null>) => {
     ref.current?.scrollIntoView({
       behavior: "smooth",
       block: "start"

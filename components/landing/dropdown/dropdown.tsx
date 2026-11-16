@@ -1,6 +1,11 @@
 
 import Link from 'next/link';
 import { motion } from 'motion/react';
+import type { Dispatch, SetStateAction } from 'react';
+
+interface DropdownProps {
+    setModal: Dispatch<SetStateAction<boolean>>;
+}
 
 const menu = [
     {
@@ -20,7 +25,7 @@ const menu = [
     }
 ]
 
-export default function Dropdown({setModal}) {
+export default function Dropdown({setModal}: DropdownProps) {
     return (
         <motion.div 
         initial={{ opacity: 0, y: -30 }}

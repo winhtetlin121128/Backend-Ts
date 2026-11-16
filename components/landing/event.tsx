@@ -1,6 +1,12 @@
 "use client";
 
-const Events = ({EventRef}) => {
+import type { RefObject } from 'react';
+
+interface EventsProps {
+    EventRef: RefObject<HTMLDivElement | null>;
+}
+
+const Events = ({EventRef}: EventsProps) => {
     return (
         <div ref={EventRef} className="h-[100%] pt-20 flex flex-col items-center">
             <div className="w-full lg:w-320 h-[100vh] pl-3 pr-3 border-b border-[#000]/20">

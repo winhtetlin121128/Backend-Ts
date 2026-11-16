@@ -1,13 +1,22 @@
 "use client"
 
 const MenuTags = ["Home", "Process", "Events", "About", "Reviews", "Docs"];
-import { useRef, useState } from 'react';
+import { useState } from 'react';
+import type { RefObject } from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 
 import Dropdownmodal from './dropdown/dropdown';
 
-const Navbar = ({ScrollToSection, HomeRef, ProcessRef, EventRef, ReviewRef}) => {
+interface NavbarProps {
+    ScrollToSection: (ref: RefObject<HTMLDivElement | null>) => void;
+    HomeRef: RefObject<HTMLDivElement | null>;
+    ProcessRef: RefObject<HTMLDivElement | null>;
+    EventRef: RefObject<HTMLDivElement | null>;
+    ReviewRef: RefObject<HTMLDivElement | null>;
+}
+
+const Navbar = ({ScrollToSection, HomeRef, ProcessRef, EventRef, ReviewRef}: NavbarProps) => {
 
     const [active, setActive] = useState("Home");
     const [modal, setModal] = useState(false);
@@ -60,7 +69,7 @@ const Navbar = ({ScrollToSection, HomeRef, ProcessRef, EventRef, ReviewRef}) => 
 
             {
                 modal === true && (
-                    <Dropdownmodal />
+                    <Dropdownmodal setModal={setModal} />
                 )
             }
         </div>

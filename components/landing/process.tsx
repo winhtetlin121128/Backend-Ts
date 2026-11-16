@@ -1,6 +1,11 @@
 "use client";
 
 import CoffeeIcon from '@/public/img/coffee.png';
+import type { RefObject } from 'react';
+
+interface ProcessProps {
+    ProcessRef: RefObject<HTMLDivElement | null>;
+}
 
 
 const processText = [
@@ -38,7 +43,7 @@ const processText = [
     }
 ]
 
-const Process = ({ProcessRef}) => {
+const Process = ({ProcessRef}: ProcessProps) => {
     return (
         <div ref={ProcessRef} className="flex justify-center pt-20">
             <div className="w-320 pb-20 border-b border-[#000]/20">
